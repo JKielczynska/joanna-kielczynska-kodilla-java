@@ -8,6 +8,6 @@ public class SimpleUser {
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 }
