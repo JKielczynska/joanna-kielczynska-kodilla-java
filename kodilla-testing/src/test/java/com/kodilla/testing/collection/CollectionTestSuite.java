@@ -24,18 +24,36 @@ public class CollectionTestSuite {
         Assert.assertTrue(result.isEmpty());
     }
     @Test
-    public void testOddNumbersExterminationNormalList() {
+    public void testOddNumbersExterminationEvenList() {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> evenNumbers = new ArrayList<Integer>(Arrays.asList(2,4,6));
-        ArrayList<Integer> oddNumbers = new ArrayList<Integer>(Arrays.asList(1,3,5));
         //When
         ArrayList<Integer> evenNumbersResult = oddNumbersExterminator.exterminate(evenNumbers);
         System.out.println("Testing even list...");
+        //Then
+        Assert.assertEquals(3, evenNumbersResult.size());
+    }
+    @Test
+    public void testOddNumbersExterminationOddList() {
+        //Given
+        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        ArrayList<Integer> oddNumbers = new ArrayList<Integer>(Arrays.asList(1,3,5));
+        //When
         ArrayList<Integer> oddNumbersResult = oddNumbersExterminator.exterminate(oddNumbers);
         System.out.println("Testing odd list...");
         //Then
-        Assert.assertEquals(3, evenNumbersResult.size());
         Assert.assertEquals(0, oddNumbersResult.size());
+    }
+    @Test
+    public void testOddNumbersExterminationMixedList() {
+        //Given
+        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        ArrayList<Integer> mixedNumbers = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5));
+        //When
+        ArrayList<Integer> mixedNumbersResult = oddNumbersExterminator.exterminate(mixedNumbers);
+        System.out.println("Testing mixed list...");
+        //Then
+        Assert.assertEquals(2, mixedNumbersResult.size());
     }
 }
