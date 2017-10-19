@@ -40,7 +40,6 @@ public class ForumStatisticsTestSuite {
     @Test
     public void testNumberOfPostsIsThousand() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int posts = 1000;
         when(statisticsMock.postsCount()).thenReturn(posts);
 
@@ -53,7 +52,6 @@ public class ForumStatisticsTestSuite {
     @Test
     public void testNumberOfCommentsIsZero() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int comments = 0;
         when(statisticsMock.commentsCount()).thenReturn(comments);
 
@@ -66,7 +64,6 @@ public class ForumStatisticsTestSuite {
     @Test
     public void testPostsMoreThanComments() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int numberOfPosts = 100;
         int numberOfComments = 50;
         when(statisticsMock.postsCount()).thenReturn(numberOfPosts);
@@ -82,7 +79,6 @@ public class ForumStatisticsTestSuite {
     @Test
     public void testPostsLessThanComments() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int numberOfPosts = 100;
         int numberOfComments = 120;
         when(statisticsMock.postsCount()).thenReturn(numberOfPosts);
@@ -98,7 +94,6 @@ public class ForumStatisticsTestSuite {
     @Test
     public void testNumberOfUsersIsZero() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         when(statisticsMock.usersNames()).thenReturn(Collections.emptyList());
 
         ForumStatistics forumStatistics = new ForumStatistics();
@@ -110,7 +105,6 @@ public class ForumStatisticsTestSuite {
     @Test
     public void testNumberOfUsersIsHundred() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         ArrayList<String> users = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {
             users.add("user no" + i);
