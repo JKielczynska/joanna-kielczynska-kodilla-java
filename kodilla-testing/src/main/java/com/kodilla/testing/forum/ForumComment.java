@@ -13,17 +13,14 @@ public class ForumComment {
         this.author = author;
     }
 
-    /**Returns commented forum post.*/
     public ForumPost getForumPost() {
         return forumPost;
     }
 
-    /**Returns comment body.*/
     public String getCommentBody() {
         return commentBody;
     }
 
-    /**Returns author of the comment.*/
     public String getAuthor() {
         return author;
     }

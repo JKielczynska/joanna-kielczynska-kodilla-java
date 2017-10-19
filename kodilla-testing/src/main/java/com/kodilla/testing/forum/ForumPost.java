@@ -10,12 +10,10 @@ public class ForumPost {
         this.author = author;
     }
 
-    /**Returns post body.*/
     public String getPostBody() {
         return postBody;
     }
 
-    /**Returns author of the post.*/
     public String getAuthor() {
         return author;
     }

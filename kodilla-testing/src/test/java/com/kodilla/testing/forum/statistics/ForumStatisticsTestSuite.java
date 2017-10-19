@@ -5,6 +5,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -105,7 +106,7 @@ public class ForumStatisticsTestSuite {
     @Test
     public void testNumberOfUsersIsHundred() {
         //Given
-        ArrayList<String> users = new ArrayList<String>();
+        List<String> users = new ArrayList<String>();
         for (int i = 0; i < 100; i++) {
             users.add("user no" + i);
         }

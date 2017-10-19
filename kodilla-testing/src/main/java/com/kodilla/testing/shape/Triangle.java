@@ -11,12 +11,10 @@ public class Triangle implements Shape {
         this.height = height;
     }
 
-    /**Returns geometrical shape name.*/
     public String getShapeName() {
         return shapeName;
     }
 
-    /**Returns triangle surface area.*/
     public double getField() {
         return (baseLength * height) / 2;
     }

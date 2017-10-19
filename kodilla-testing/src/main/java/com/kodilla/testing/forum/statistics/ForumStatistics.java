@@ -9,32 +9,26 @@ public class ForumStatistics {
     private double avgCommentsPerUser;
     private double avgCommentsPerPost;
 
-    /**Returns number of forum users. */
     public int getNumberOfUsers() {
         return numberOfUsers;
     }
 
-    /**Returns number of forum posts. */
     public int getNumberOfPosts() {
         return numberOfPosts;
     }
 
-    /**Returns number of forum comments. */
     public int getNumberOfComments() {
         return numberOfComments;
     }
 
-    /**Returns average number posts per forum user. */
     public double getAvgPostsPerUser() {
         return avgPostsPerUser;
     }
 
-    /**Returns average number comments per forum user. */
     public double getAvgCommentsPerUser() {
         return avgCommentsPerUser;
     }
 
-    /**Returns average number comments per post in forum. */
     public double getAvgCommentsPerPost() {
         return avgCommentsPerPost;
     }

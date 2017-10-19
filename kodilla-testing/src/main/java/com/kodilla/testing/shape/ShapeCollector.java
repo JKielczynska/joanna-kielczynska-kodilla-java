@@ -1,13 +1,14 @@
 package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class stores geometric figures in the ArrayList collection
  * and performs the operations of adding, removing, retrieving and showing on figures.
  */
 public class ShapeCollector {
-    ArrayList<Shape> figures = new ArrayList<>();
+    List<Shape> figures = new ArrayList<>();
 
     /**Adds figure to ArrayList collection.*/
     public void addFigure(final Shape shape) {
@@ -24,7 +25,6 @@ public class ShapeCollector {
         return result;
     }
 
-    /**Retrieves figure.*/
     public Shape getFigure(final int n) {
         return figures.get(n);
     }

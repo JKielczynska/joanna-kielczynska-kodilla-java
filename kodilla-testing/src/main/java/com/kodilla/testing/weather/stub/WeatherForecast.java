@@ -12,8 +12,8 @@ public class WeatherForecast {
     }
 
     /**Calculates weather forecast by adding 1 degree to the results of each temperature sensor.*/
-    public HashMap<Integer, Double> calculateForecast() {
-        HashMap<Integer, Double> resultMap = new HashMap<Integer, Double>();
+    public Map<Integer, Double> calculateForecast() {
+        Map<Integer, Double> resultMap = new HashMap<Integer, Double>();
 
         for (Map.Entry<Integer, Double> temperature : temperatures.getTemperatures().entrySet()) {
             resultMap.put(temperature.getKey(), temperature.getValue() + 1);

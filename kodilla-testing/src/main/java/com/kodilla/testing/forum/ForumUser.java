@@ -2,13 +2,14 @@ package com.kodilla.testing.forum;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**Class represents forum user with his nickname, real name, posts and comments.*/
 public class ForumUser {
     private final String name;
     private final String realName;
-    private final ArrayList<ForumPost> posts = new ArrayList<ForumPost>();
-    private final LinkedList<ForumComment> comments = new LinkedList<ForumComment>();
+    private final List<ForumPost> posts = new ArrayList<ForumPost>();
+    private final List<ForumComment> comments = new LinkedList<ForumComment>();
 
     public ForumUser(final String name, final String realName) {
         this.name = name;
@@ -75,12 +76,10 @@ public class ForumUser {
         return result;
     }
 
-    /**Returns user's nickname.*/
     public String getName() {
         return name;
     }
 
-    /**Returns user's real name.*/
     public String getRealName() {
         return realName;
     }

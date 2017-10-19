@@ -9,12 +9,10 @@ public class Circle implements Shape {
         this.radius = radius;
     }
 
-    /**Returns geometrical shape name.*/
     public String getShapeName() {
         return shapeName;
     }
 
-    /**Returns circle surface area.*/
     public double getField() {
         return Math.PI * radius * radius;
     }

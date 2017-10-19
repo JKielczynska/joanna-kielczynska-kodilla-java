@@ -9,12 +9,10 @@ public class Square implements Shape {
         this.sideLength = sideLength;
     }
 
-    /**Returns geometrical shape name.*/
     public String getShapeName() {
         return shapeName;
     }
 
-    /**Returns square surface area.*/
     public double getField() {
         return sideLength * sideLength;
     }
