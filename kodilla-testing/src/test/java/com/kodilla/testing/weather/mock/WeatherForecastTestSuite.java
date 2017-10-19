@@ -1,13 +1,14 @@
 package com.kodilla.testing.weather.mock;
 
-import com.kodilla.testing.weather.stub.Temperatures;
-import com.kodilla.testing.weather.stub.WeatherForecast;
-import org.junit.Assert;
-import org.junit.Test;
-import java.util.HashMap;
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
+import com.kodilla.testing.weather.stub.Temperatures;
+import com.kodilla.testing.weather.stub.WeatherForecast;
+
+import java.util.HashMap;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class WeatherForecastTestSuite {
     @Test

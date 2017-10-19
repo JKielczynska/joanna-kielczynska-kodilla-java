@@ -1,30 +1,39 @@
 package com.kodilla.testing.forum;
 
+/**Class represents the user's forum post.*/
 public class ForumPost {
-    String postBody;
-    String author;
+    private final String postBody;
+    private final String author;
 
-    public ForumPost(String postBody, String author) {
+    public ForumPost(final String postBody, final String author) {
         this.postBody = postBody;
         this.author = author;
     }
 
+    /**Returns post body.*/
     public String getPostBody() {
         return postBody;
     }
 
+    /**Returns author of the post.*/
     public String getAuthor() {
         return author;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         ForumPost forumPost = (ForumPost) o;
 
-        if (!postBody.equals(forumPost.postBody)) return false;
+        if (!postBody.equals(forumPost.postBody)) {
+            return false;
+        }
         return author.equals(forumPost.author);
     }
 

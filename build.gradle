@@ -24,6 +24,8 @@ allprojects {
 		configFile = rootProject.file('config/checkstyle/checkstyle.xml')
 	}
 
+	checkstyleTest.enabled = false
+
 	sourceCompatibility = 1.8
 
 	repositories {

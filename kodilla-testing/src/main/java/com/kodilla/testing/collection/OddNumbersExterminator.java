@@ -2,8 +2,11 @@ package com.kodilla.testing.collection;
 
 import java.util.ArrayList;
 
+/**Removes odd numbers from the ArrayList. */
 public class OddNumbersExterminator {
-    public ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
+
+    /**Removes odd numbers from the ArrayList.*/
+    public ArrayList<Integer> exterminate(final ArrayList<Integer> numbers) {
         ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
         for (Integer number : numbers) {
             if (number % 2 == 0) {

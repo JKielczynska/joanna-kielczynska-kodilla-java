@@ -1,16 +1,20 @@
 package com.kodilla.testing.forum.statistics;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import java.util.ArrayList;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class ForumStatisticsTestSuite {
     private static int testCounter = 0;
+    private Statistics statisticsMock;
     @AfterClass
     public static void afterAllTests() {
         System.out.println("All tests are finished.");
@@ -18,12 +22,12 @@ public class ForumStatisticsTestSuite {
     @Before
     public void beforeEveryTest() {
         testCounter++;
+        statisticsMock = mock(Statistics.class);
         System.out.println("Preparing to execute test #" + testCounter);
     }
     @Test
     public void testNumberOfPostsIsZero() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int posts = 0;
         when(statisticsMock.postsCount()).thenReturn(posts);
 
@@ -73,7 +77,7 @@ public class ForumStatisticsTestSuite {
         forumStatistics.calculateAdvStatistics(statisticsMock);
         double result = forumStatistics.getAvgCommentsPerPost();
         //Then
-        Assert.assertTrue(result < 1);
+        Assert.assertTrue(forumStatistics.getAvgCommentsPerPost() < 1);
     }
     @Test
     public void testPostsLessThanComments() {
@@ -89,14 +93,13 @@ public class ForumStatisticsTestSuite {
         forumStatistics.calculateAdvStatistics(statisticsMock);
         double result = forumStatistics.getAvgCommentsPerPost();
         //Then
-        Assert.assertTrue(result > 1);
+        Assert.assertTrue(forumStatistics.getAvgCommentsPerPost() > 1);
     }
     @Test
     public void testNumberOfUsersIsZero() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        ArrayList<String> users = new ArrayList<String>();
-        when(statisticsMock.usersNames()).thenReturn(users);
+        when(statisticsMock.usersNames()).thenReturn(Collections.emptyList());
 
         ForumStatistics forumStatistics = new ForumStatistics();
         //When
@@ -109,7 +112,7 @@ public class ForumStatisticsTestSuite {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         ArrayList<String> users = new ArrayList<String>();
-        for(int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; i++) {
             users.add("user no" + i);
         }
         when(statisticsMock.usersNames()).thenReturn(users);

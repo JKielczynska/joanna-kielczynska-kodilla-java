@@ -1,5 +1,6 @@
 package com.kodilla.testing.forum.statistics;
 
+/**Class presents the forum statistics.*/
 public class ForumStatistics {
     private int numberOfUsers;
     private int numberOfPosts;
@@ -8,31 +9,38 @@ public class ForumStatistics {
     private double avgCommentsPerUser;
     private double avgCommentsPerPost;
 
+    /**Returns number of forum users. */
     public int getNumberOfUsers() {
         return numberOfUsers;
     }
 
+    /**Returns number of forum posts. */
     public int getNumberOfPosts() {
         return numberOfPosts;
     }
 
+    /**Returns number of forum comments. */
     public int getNumberOfComments() {
         return numberOfComments;
     }
 
+    /**Returns average number posts per forum user. */
     public double getAvgPostsPerUser() {
         return avgPostsPerUser;
     }
 
+    /**Returns average number comments per forum user. */
     public double getAvgCommentsPerUser() {
         return avgCommentsPerUser;
     }
 
+    /**Returns average number comments per post in forum. */
     public double getAvgCommentsPerPost() {
         return avgCommentsPerPost;
     }
 
-    public void calculateAdvStatistics(Statistics statistics) {
+    /**Calculates statistics based on forum data. */
+    public void calculateAdvStatistics(final Statistics statistics) {
         numberOfUsers = statistics.usersNames().size();
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
@@ -47,6 +55,7 @@ public class ForumStatistics {
         }
     }
 
+    /**Prints the statistics of forum. */
     public void showStatistics() {
         System.out.println("Number of Users: " + numberOfUsers);
         System.out.println("Number od posts: " + numberOfPosts);
