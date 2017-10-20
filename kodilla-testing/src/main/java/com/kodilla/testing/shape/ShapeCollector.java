@@ -13,8 +13,8 @@ public class ShapeCollector {
 
     /**Adds figure to ArrayList collection.*/
     public void addFigure(final Shape shape) {
-        figures.add(shape);
         Objects.requireNonNull(shape);
+        figures.add(shape);
     }
 
     /**Removes figure from ArrayList collection.*/

@@ -33,20 +33,18 @@ public class ForumStatistics {
         return avgCommentsPerPost;
     }
 
-    /**Calls methods for calculating statistics.*/
+    /**Calculates statistics based on forum data. */
     public void calculateAdvStatistics(final Statistics statistics) {
         storeBasicStats(statistics);
         calculateComplexStats();
     }
 
-    /**Calculates basic statistics based on forum data.*/
     private void storeBasicStats(final Statistics statistics) {
         numberOfUsers = statistics.usersNames().size();
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
     }
 
-    /**Calculates complex statistics based on forum data.*/
     private void calculateComplexStats() {
         if (numberOfUsers != 0) {
             avgPostsPerUser = (double) numberOfPosts / (double) numberOfUsers;
