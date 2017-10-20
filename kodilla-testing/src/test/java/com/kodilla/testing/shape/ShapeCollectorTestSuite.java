@@ -55,9 +55,9 @@ public class ShapeCollectorTestSuite {
         Square testFigure = new Square(4);
         shape.addFigure(testFigure);
         //When
-        boolean result = shape.removeFigure(testFigure);
+        shape.removeFigure(testFigure);
         //Then
-        Assert.assertTrue(result);
+        Assert.assertEquals(0, shape.collectionSize());
     }
     @Test
     public void testRemoveTriangle() {
@@ -66,9 +66,9 @@ public class ShapeCollectorTestSuite {
         Triangle testFigure = new Triangle(4, 4);
         shape.addFigure(testFigure);
         //When
-        boolean result = shape.removeFigure(testFigure);
+        shape.removeFigure(testFigure);
         //Then
-        Assert.assertTrue(result);
+        Assert.assertEquals(0, shape.collectionSize());
     }
     @Test
     public void testRemoveCircle() {
@@ -77,9 +77,9 @@ public class ShapeCollectorTestSuite {
         Circle testFigure = new Circle(4);
         shape.addFigure(testFigure);
         //When
-        boolean result = shape.removeFigure(testFigure);
+        shape.removeFigure(testFigure);
         //Then
-        Assert.assertTrue(result);
+        Assert.assertEquals(0, shape.collectionSize());
     }
     @Test
     public void testGetSquare() {

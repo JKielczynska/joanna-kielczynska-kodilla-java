@@ -33,29 +33,36 @@ public class ForumStatistics {
         return avgCommentsPerPost;
     }
 
-    /**Calculates statistics based on forum data. */
+    /**Calls methods for calculating statistics.*/
     public void calculateAdvStatistics(final Statistics statistics) {
+        storeBasicStats(statistics);
+        calculateComplexStats();
+    }
+
+    /**Calculates basic statistics based on forum data.*/
+    private void storeBasicStats(final Statistics statistics) {
         numberOfUsers = statistics.usersNames().size();
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
+    }
 
-        if (numberOfUsers > 0) {
+    /**Calculates complex statistics based on forum data.*/
+    private void calculateComplexStats() {
+        if (numberOfUsers != 0) {
             avgPostsPerUser = (double) numberOfPosts / (double) numberOfUsers;
             avgCommentsPerUser = (double) numberOfComments / (double) numberOfUsers;
         }
 
-        if (numberOfPosts > 0) {
+        if (numberOfPosts != 0) {
             avgCommentsPerPost = (double) numberOfComments / (double) numberOfPosts;
         }
     }
 
     /**Prints the statistics of forum. */
     public void showStatistics() {
-        System.out.println("Number of Users: " + numberOfUsers);
-        System.out.println("Number od posts: " + numberOfPosts);
-        System.out.println("Number of comments: " + numberOfComments);
-        System.out.println("Average nmber of posts per User: " + avgPostsPerUser);
-        System.out.println("Average number of comments per User: " + avgCommentsPerUser);
-        System.out.println("Average number of comments per post: " + avgCommentsPerPost);
+        System.out.printf("Number of Users: %d%n, Number od posts: %d%n, Number of comments: %d%n, "
+                        + "Average number of posts per User: %.2f%n, Average number of comments per User: %.2f%n, "
+                        + "Average number of comments per post: %.2f%n", numberOfUsers, numberOfPosts, numberOfComments,
+                        avgPostsPerUser, avgCommentsPerUser, avgCommentsPerPost);
     }
 }

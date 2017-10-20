@@ -2,6 +2,7 @@ package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Class stores geometric figures in the ArrayList collection
@@ -13,16 +14,13 @@ public class ShapeCollector {
     /**Adds figure to ArrayList collection.*/
     public void addFigure(final Shape shape) {
         figures.add(shape);
+        Objects.requireNonNull(shape);
     }
 
     /**Removes figure from ArrayList collection.*/
-    public boolean removeFigure(final Shape shape) {
-        boolean result = false;
-        if (figures.contains(shape)) {
-            figures.remove(shape);
-            result = true;
-        }
-        return result;
+    public void removeFigure(final Shape shape) {
+        Objects.requireNonNull(shape);
+        figures.remove(shape);
     }
 
     public Shape getFigure(final int n) {

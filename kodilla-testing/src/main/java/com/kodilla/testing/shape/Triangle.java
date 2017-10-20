@@ -2,7 +2,7 @@ package com.kodilla.testing.shape;
 
 /**Class represents triangle and its surface area.*/
 public class Triangle implements Shape {
-    private final String shapeName = "triangle";
+    private static final String shapeName = "triangle";
     private final double baseLength;
     private final double height;
 

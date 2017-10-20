@@ -73,7 +73,6 @@ public class ForumStatisticsTestSuite {
         ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
-        double result = forumStatistics.getAvgCommentsPerPost();
         //Then
         Assert.assertTrue(forumStatistics.getAvgCommentsPerPost() < 1);
     }
@@ -88,7 +87,6 @@ public class ForumStatisticsTestSuite {
         ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
-        double result = forumStatistics.getAvgCommentsPerPost();
         //Then
         Assert.assertTrue(forumStatistics.getAvgCommentsPerPost() > 1);
     }

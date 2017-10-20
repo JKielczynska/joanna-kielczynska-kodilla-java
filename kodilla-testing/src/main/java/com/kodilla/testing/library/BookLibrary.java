@@ -28,7 +28,6 @@ public class BookLibrary {
 
     /**Returns list of books rented by the user.*/
     public List<Book> listBooksInHandsOf(final LibraryUser libraryUser) {
-        List<Book> rentedBookList = libraryDatabase.listBooksInHandsOf(libraryUser);
-        return rentedBookList;
+        return libraryDatabase.listBooksInHandsOf(libraryUser);
     }
 }
