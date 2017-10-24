@@ -58,9 +58,9 @@ public class ForumStatistics {
 
     /**Prints the statistics of forum. */
     public void showStatistics() {
-        System.out.printf("Number of Users: %d%n, Number od posts: %d%n, Number of comments: %d%n, "
-                        + "Average number of posts per User: %.2f%n, Average number of comments per User: %.2f%n, "
-                        + "Average number of comments per post: %.2f%n", numberOfUsers, numberOfPosts, numberOfComments,
+        System.out.printf("Number of Users: %d%n, Number od posts: %d%n, Number of comments: %d%n, " +
+                        "Average number of posts per User: %.2f%n, Average number of comments per User: %.2f%n, " +
+                        "Average number of comments per post: %.2f%n", numberOfUsers, numberOfPosts, numberOfComments,
                         avgPostsPerUser, avgCommentsPerUser, avgCommentsPerPost);
     }
 }

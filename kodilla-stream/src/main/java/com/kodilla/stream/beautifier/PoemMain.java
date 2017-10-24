@@ -4,7 +4,7 @@ package com.kodilla.stream.beautifier;
 
 public class PoemMain {
 
-    /**Method changes text with use lambda expressions.*/
+    /**Method changes text with use lambda expressions..*/
     public static void main(final String[] args) {
         PoemBeautifier poemBeautifier = new PoemBeautifier();
 
