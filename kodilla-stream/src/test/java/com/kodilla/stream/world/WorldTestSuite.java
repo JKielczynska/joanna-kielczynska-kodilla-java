@@ -9,11 +9,11 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity() {
         //Given
-        World world = testWorld();
+        World world = buildTestWorld();
         //When
-
+        BigDecimal totalNumberOfPeople = world.getPeopleQuantity();
         //Then
-        Assert.assertEquals(world.getPeopleQuantity(), new BigDecimal("660000000"));
+        Assert.assertEquals(totalNumberOfPeople, new BigDecimal("660000000"));
     }
 
     private static void buildTestEurope(World world) {
@@ -34,7 +34,7 @@ public class WorldTestSuite {
         world.addContinent(africa);
     }
 
-    private static World testWorld() {
+    private static World buildTestWorld() {
         World world = new World();
         buildTestEurope(world);
         buildTestAfrica(world);
