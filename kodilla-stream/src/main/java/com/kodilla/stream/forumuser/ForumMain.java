@@ -11,7 +11,7 @@ public final class ForumMain {
         Forum theForum = new Forum();
         Map<Integer, ForumUser> theResultMapOfForumUser = theForum.getUserList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'M')
-                .filter(forumUser -> LocalDate.now().compareTo(forumUser.getDateOfBirth()) > 20)
+                .filter(forumUser -> forumUser.getDateOfBirth().plusYears(20).isBefore(LocalDate.now()))
                 .filter(forumUser -> forumUser.getNumberOfPosts() >= 1)
                 .collect(Collectors.toMap(ForumUser::getUserId, forumUser -> forumUser));
 
