@@ -5,8 +5,8 @@ import static java.util.stream.Collectors.toList;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.OptionalDouble;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -124,8 +124,7 @@ public class BoardTestSuite {
         Board project = prepareTestData();
 
         //When
-        List<TaskList> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add(new TaskList("In progress"));
+        List inProgressTasks = Collections.singletonList(new TaskList("In progress"));
         long longTasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
@@ -142,8 +141,7 @@ public class BoardTestSuite {
         //Given
         Board project = prepareTestData();
         //When
-        List<TaskList> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add(new TaskList("In progress"));
+        List inProgressTasks = Collections.singletonList(new TaskList("In progress"));
         double averageWorkingOnTask = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
