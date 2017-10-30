@@ -124,7 +124,7 @@ public class BoardTestSuite {
         Board project = prepareTestData();
 
         //When
-        List inProgressTasks = Collections.singletonList(new TaskList("In progress"));
+        List<TaskList> inProgressTasks = Collections.singletonList(new TaskList("In progress"));
         long longTasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
@@ -141,7 +141,7 @@ public class BoardTestSuite {
         //Given
         Board project = prepareTestData();
         //When
-        List inProgressTasks = Collections.singletonList(new TaskList("In progress"));
+        List<TaskList> inProgressTasks = Collections.singletonList(new TaskList("In progress"));
         double averageWorkingOnTask = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
