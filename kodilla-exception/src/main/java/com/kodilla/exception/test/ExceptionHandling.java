@@ -10,6 +10,8 @@ public final class ExceptionHandling {
             secondChallenge.probablyIWillThrowException(2.5, 1.5);
         } catch (Exception e) {
             System.out.println("Invalid argument!");
+        } finally {
+            System.out.println("Condition has been checked.");
         }
     }
 }
