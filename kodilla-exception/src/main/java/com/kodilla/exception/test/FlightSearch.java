@@ -18,7 +18,7 @@ public final class FlightSearch {
         if (airports.get(flight.getDepartureAirport()) && airports.get(flight.getArrivalAirport())) {
             System.out.println("Route " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() + " is available.");
         } else {
-            System.out.prigitntln("Route " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() + " isn't available.");
+            System.out.println("Route " + flight.getDepartureAirport() + " to " + flight.getArrivalAirport() + " isn't available.");
         }
     }
 
