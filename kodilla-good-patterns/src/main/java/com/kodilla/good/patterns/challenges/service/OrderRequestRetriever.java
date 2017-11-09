@@ -4,8 +4,8 @@ public class OrderRequestRetriever {
     /**Method stores data about the order.*/
     public OrderRequest retrive() {
         User user = new User("jkowalski", "Jan", "Kowalski", "Warszawa");
-        Product product = new Product("Snowboard", 699.99);
+        ProductShoes shoes = new ProductShoes("Shoes", "Sneakers", 129.99, "black", "42");
 
-        return new OrderRequest(user, product, 2);
+        return new OrderRequest(user, shoes, 2);
     }
 }

@@ -20,7 +20,7 @@ public class ProductOrderService {
                 orderRequest.getQuantity());
 
         if (isOrdered) {
-            informationService.sendMessage(orderRequest.getUser());
+            informationService.sendMessage(orderRequest.getUser(), orderRequest.getProduct());
             orderRepository.createOrder(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getQuantity());
             return new OrderDto(orderRequest.getUser(), orderRequest.getProduct(), true);
         } else {
