@@ -1,13 +1,13 @@
 package com.kodilla.good.patterns.challenges.service;
 
-public class ProductShoes extends Product {
+public class Shoes extends Product {
 
     private String color;
     private String size;
 
     /**Constructor returns the type of product which is the Shoes with the color and size arguments.*/
-    public ProductShoes(final String typeOfProduct, final String name, final double price, final String color, final String size) {
-        super(typeOfProduct, name, price);
+    public Shoes(final String typeOfProduct, final String name, final double price, final String color, final String size) {
+        super("Shoes", name, price);
         this.color = color;
         this.size = size;
     }

@@ -4,6 +4,8 @@ public class ProductOrderService {
     private InformationService informationService;
     private OrderService orderService;
     private OrderRepository orderRepository;
+    private User user;
+    private Product product;
 
     /**Constructor uses interfaces: InformationServices, OrderService and OrderRepository.*/
     public ProductOrderService(final InformationService informationService,
@@ -20,7 +22,7 @@ public class ProductOrderService {
                 orderRequest.getQuantity());
 
         if (isOrdered) {
-            informationService.sendMessage(orderRequest.getUser(), orderRequest.getProduct());
+            informationService.sendMessage(new MessageDto(user,  "Product "+ product +" successfully ordered"));
             orderRepository.createOrder(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getQuantity());
             return new OrderDto(orderRequest.getUser(), orderRequest.getProduct(), true);
         } else {
