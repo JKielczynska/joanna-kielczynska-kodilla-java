@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns.challenges;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.junit.Assert;
@@ -26,21 +26,21 @@ public class MovieStoreTestSuite {
     private MovieStore buildMovieStore() {
         MovieStore movieStore = new MovieStore();
 
-        List<String> ironManTranslations = new ArrayList<>();
+        Set<String> ironManTranslations = new LinkedHashSet<>();
         ironManTranslations.add("Żelazny Człowiek");
         ironManTranslations.add("Iron Man");
 
-        List<String> avengersTranslations = new ArrayList<>();
+        Set<String> avengersTranslations = new LinkedHashSet<>();
         avengersTranslations.add("Mściciele");
         avengersTranslations.add("Avengers");
 
-        List<String> flashTranslations = new ArrayList<>();
+        Set<String> flashTranslations = new LinkedHashSet<>();
         flashTranslations.add("Błyskawica");
         flashTranslations.add("Flash");
 
-        movieStore.addMovies("IM", ironManTranslations);
-        movieStore.addMovies("AV", avengersTranslations);
-        movieStore.addMovies("FL", flashTranslations);
+        movieStore.addMoviesAndTranslations("IM", ironManTranslations);
+        movieStore.addMoviesAndTranslations("AV", avengersTranslations);
+        movieStore.addMoviesAndTranslations("FL", flashTranslations);
 
         return movieStore;
     }

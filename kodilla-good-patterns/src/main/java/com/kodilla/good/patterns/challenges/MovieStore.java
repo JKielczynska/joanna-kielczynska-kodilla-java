@@ -1,18 +1,19 @@
 package com.kodilla.good.patterns.challenges;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 class MovieStore {
 
-    private Map<String, List<String>> moviesTitlesWithTranslationsMap = new HashMap<>();
+    private Map<String, Set<String>> moviesTitlesWithTranslationsMap = new HashMap<>();
 
-    public void addMovies(final String id, final List<String> movieTranslationsList) {
-        moviesTitlesWithTranslationsMap.put(id, movieTranslationsList);
+    public void addMoviesAndTranslations(final String id, final Set<String> movieTranslationsList) {
+        moviesTitlesWithTranslationsMap.putIfAbsent(id, movieTranslationsList);
+        moviesTitlesWithTranslationsMap.get(id).addAll(movieTranslationsList);
     }
 
-    public Map<String, List<String>> getMovies() {
+    public Map<String, Set<String>> getMovies() {
         return moviesTitlesWithTranslationsMap;
     }
 }
