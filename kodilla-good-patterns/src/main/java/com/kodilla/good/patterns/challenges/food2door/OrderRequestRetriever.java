@@ -1,18 +1,23 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderRequestRetriever {
     /**Method stores data about the order.*/
-    public OrderRequest retrive() {
-        ExtraFoodShop extraFoodShop = new ExtraFoodShop();
+    public OrderRequest retrieve() {
+
+        User user = new User("anowak", "Anna", "Nowak");
 
         List<Product> products = new ArrayList<>();
-        products.add(new Product("Chia seed", 5.99, 57));
-        products.add(new Product("Buckwheat", 12.53, 22));
-        products.add(new Product("Goji beeries", 39.99, 10));
+        products.add(new Product("EFS","Chia seed", 5.99, 57));
+        products.add(new Product("GFS","Buckwheat", 12.53, 22));
+        products.add(new Product("HS","Goji beeries", 39.99, 10));
 
-        return new OrderRequest(extraFoodShop, products);
+        LocalDate orderDate = LocalDate.of(2017, 11, 13);
+        
+        return new OrderRequest(user, products, orderDate);
     }
 }
