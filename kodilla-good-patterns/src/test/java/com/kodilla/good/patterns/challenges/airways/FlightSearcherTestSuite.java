@@ -1,5 +1,7 @@
 package com.kodilla.good.patterns.challenges.airways;
 
+import static org.junit.Assert.fail;
+
 import java.util.List;
 
 import org.junit.Assert;
@@ -35,6 +37,15 @@ public class FlightSearcherTestSuite {
         System.out.println(expectedFlights);
         //Then
         Assert.assertEquals(expectedFlights.toString(), "[Flight from  Warsaw to London, Flight from  London to New York]");
+    }
+    @Test(expected=FlightNotExistException.class)
+    public void testFlightNotExistException() {
+        //Given
+        FlightSearcher flightSearcher = flightDatabase();
+        //When
+        List<Flight> expectedFlights = flightSearcher.findConnectingFlights(new Airport("Warsaw"), new Airport("Berlin"), new Airport("New York"));
+        //Then
+        System.out.println("This flight exist: " + expectedFlights);
     }
 
     public FlightSearcher flightDatabase() {

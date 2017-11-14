@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.omg.CosNaming.NamingContextPackage.NotFound;
+
 public class FlightSearcher {
     private List<Flight> flightList = new ArrayList<>();
 
@@ -30,17 +32,19 @@ public class FlightSearcher {
     /**Method returns the list of connecting flights.*/
     public List<Flight> findConnectingFlights(final Airport flightFrom, final Airport flightBy, final Airport flightTo) {
         List<Flight> transferFlight = new ArrayList<>();
-        Flight firstFlight = flightList.stream()
-                .filter(flight -> flight.getDepartureAirport().equals(flightFrom))
-                .filter(flight -> flight.getArrivalAirport().equals(flightBy))
-                .findAny().get();
-        Flight secondFlight = flightList.stream()
-                .filter(flight -> flight.getDepartureAirport().equals(flightBy))
-                .filter(flight -> flight.getArrivalAirport().equals(flightTo))
-                .findAny().get();
-        transferFlight.add(firstFlight);
-        transferFlight.add(secondFlight);
+        transferFlight.add(flight(flightFrom, flightBy));
+        transferFlight.add(flight(flightBy, flightTo));
 
         return transferFlight;
+    }
+
+    private Flight flight(final Airport flightFrom, final Airport flightTo) {
+        Flight flight = flightList.stream()
+                .filter(f -> f.getDepartureAirport().equals(flightFrom))
+                .filter(f -> f.getArrivalAirport().equals(flightTo))
+                .findAny()
+                .orElseThrow(() -> new FlightNotExistException("Flight doesn't exist."));
+
+        return flight;
     }
 }
