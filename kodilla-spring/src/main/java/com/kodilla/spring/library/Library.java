@@ -9,15 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 public final class Library {
     private final List<String> books = new ArrayList<>();
-    private LibraryDbController libraryDbController;
 
     @Autowired
-    public Library(final LibraryDbController libraryDbController) {
-        this.libraryDbController = libraryDbController;
-    }
-
-    public Library() {
-    }
+    private LibraryDbController libraryDbController;
 
     public void saveToDb() {
         libraryDbController.saveData();
