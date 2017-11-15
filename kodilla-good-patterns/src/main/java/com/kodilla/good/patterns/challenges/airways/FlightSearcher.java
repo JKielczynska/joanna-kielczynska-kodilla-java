@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.omg.CosNaming.NamingContextPackage.NotFound;
-
 public class FlightSearcher {
     private List<Flight> flightList = new ArrayList<>();
 

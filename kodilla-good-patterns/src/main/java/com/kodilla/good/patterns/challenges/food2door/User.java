@@ -26,9 +26,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "nickName='" + nickName + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname;
+        return name + " " + surname + " (nickName: " + nickName + ")";
     }
 }

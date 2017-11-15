@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-import java.util.List;
-
 public class GlutenFreeShop implements Supplier {
     private static final String NAME = "Gluten Free Shop";
 
@@ -10,8 +8,8 @@ public class GlutenFreeShop implements Supplier {
     }
 
     @Override
-    public void process(final List<Product> products) {
-
+    public boolean process(final Product product) {
+        return false;
     }
 
     @Override

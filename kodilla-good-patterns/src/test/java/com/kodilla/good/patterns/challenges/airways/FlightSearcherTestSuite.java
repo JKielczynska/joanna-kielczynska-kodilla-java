@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.challenges.airways;
 
-import static org.junit.Assert.fail;
-
 import java.util.List;
 
 import org.junit.Assert;
