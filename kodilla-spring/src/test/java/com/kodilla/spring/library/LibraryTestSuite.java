@@ -1,5 +1,7 @@
 package com.kodilla.spring.library;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,4 +35,17 @@ public class LibraryTestSuite {
         //Then
         //do nothing
     }
+
+    @Test
+    public void textContext() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        //When & Then
+        System.out.println("=== Beans list: === >>");
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+        System.out.println("<< === Beans list ===");
+    }
+
+
 }
