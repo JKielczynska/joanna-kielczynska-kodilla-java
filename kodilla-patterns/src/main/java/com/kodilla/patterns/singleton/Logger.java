@@ -7,6 +7,7 @@ public class Logger {
     private Logger() {
     }
 
+    /**Method doesn't allow to create more than one Singleton object.*/
     public static Logger getInstance() {
         if (loggerInstance == null) {
             loggerInstance = new Logger();
@@ -14,7 +15,7 @@ public class Logger {
         return loggerInstance;
     }
 
-    public void log(String log) {
+    public void log(final String log) {
         lastLog = log;
         System.out.println("Log: [" + log + "]");
     }

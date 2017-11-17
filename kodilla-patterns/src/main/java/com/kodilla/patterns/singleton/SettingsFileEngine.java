@@ -7,6 +7,7 @@ public final class SettingsFileEngine {
     private SettingsFileEngine() {
     }
 
+    /**Method doesn't allow to create more than one Singleton object.*/
     public static SettingsFileEngine getInstance() {
         if (settingsFileEngineInstance == null) {
             settingsFileEngineInstance = new SettingsFileEngine();
