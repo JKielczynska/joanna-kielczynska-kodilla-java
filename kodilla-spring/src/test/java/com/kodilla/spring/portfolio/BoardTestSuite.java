@@ -1,6 +1,6 @@
 package com.kodilla.spring.portfolio;
 
-import org.junit.Assert;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,35 +16,32 @@ public class BoardTestSuite {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
-        board.getToDoList().addTask("Wash the dishes.");
         //When
-        String toDoTask = board.getToDoList().getTasks().get(0);
+        board.getToDoList().addTask("Wash the dishes.");
         //Then
-        Assert.assertEquals("Wash the dishes.", toDoTask);
-        System.out.println("To do: " + toDoTask);
+        Assertions.assertThat(board.getToDoList().getTasks().contains("Wash the dishes."));
+        System.out.println("To do: " + board.getToDoList().getTasks());
     }
     @Test
     public void testInProgressTask() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
-        board.getInProgressList().addTask("Clean the bathroom.");
         //When
-        String inProgressTask = board.getInProgressList().getTasks().get(0);
+        board.getInProgressList().addTask("Clean the bathroom.");
         //Then
-        Assert.assertEquals("Clean the bathroom.", inProgressTask);
-        System.out.println("In progress: " + inProgressTask);
+        Assertions.assertThat(board.getToDoList().getTasks().contains("Clean the bathroom."));
+        System.out.println("In progress: " + board.getInProgressList().getTasks());
     }
     @Test
     public void testDoneTask() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
-        board.getDoneList().addTask("Go shopping.");
         //When
-        String doneTask = board.getDoneList().getTasks().get(0);
+        board.getDoneList().addTask("Go shopping.");
         //Then
-        Assert.assertEquals("Go shopping.", doneTask);
-        System.out.println("Done: " + doneTask);
+        Assertions.assertThat(board.getToDoList().getTasks().contains("Go shopping."));
+        System.out.println("Done: " + board.getDoneList().getTasks());
     }
 }

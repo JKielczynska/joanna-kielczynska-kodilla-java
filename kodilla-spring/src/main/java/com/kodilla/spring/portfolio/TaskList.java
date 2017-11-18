@@ -3,9 +3,9 @@ package com.kodilla.spring.portfolio;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
-@Repository
+@Component
 public class TaskList {
     private List<String> tasks;
 
