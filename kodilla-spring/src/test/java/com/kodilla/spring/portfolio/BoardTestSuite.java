@@ -19,7 +19,7 @@ public class BoardTestSuite {
         //When
         board.getToDoList().addTask("Wash the dishes.");
         //Then
-        Assertions.assertThat(board.getToDoList().getTasks().contains("Wash the dishes."));
+        Assertions.assertThat(board.getToDoList().getTasks()).hasSize(1).contains("Wash the dishes.");
         System.out.println("To do: " + board.getToDoList().getTasks());
     }
     @Test
@@ -30,7 +30,7 @@ public class BoardTestSuite {
         //When
         board.getInProgressList().addTask("Clean the bathroom.");
         //Then
-        Assertions.assertThat(board.getToDoList().getTasks().contains("Clean the bathroom."));
+        Assertions.assertThat(board.getInProgressList().getTasks()).hasSize(1).contains("Clean the bathroom.");
         System.out.println("In progress: " + board.getInProgressList().getTasks());
     }
     @Test
@@ -41,7 +41,7 @@ public class BoardTestSuite {
         //When
         board.getDoneList().addTask("Go shopping.");
         //Then
-        Assertions.assertThat(board.getToDoList().getTasks().contains("Go shopping."));
+        Assertions.assertThat(board.getDoneList().getTasks()).hasSize(1).contains("Go shopping.");
         System.out.println("Done: " + board.getDoneList().getTasks());
     }
 }
