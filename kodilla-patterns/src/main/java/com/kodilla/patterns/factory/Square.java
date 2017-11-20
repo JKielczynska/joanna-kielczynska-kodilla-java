@@ -4,6 +4,7 @@ public final class Square implements Shape {
     final String name;
     final double width;
 
+    /**Method represents square shape.*/
     public Square(final String name, final double width) {
         this.name = name;
         this.width = width;

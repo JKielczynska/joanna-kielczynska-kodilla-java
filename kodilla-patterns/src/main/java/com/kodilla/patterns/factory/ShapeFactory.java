@@ -5,6 +5,7 @@ public final class ShapeFactory {
     public static final String SQUARE = "SQUARE";
     public static final String RECTANGLE = "RECTANGLE";
 
+    /**Method creates shape in line with factory design pattern.*/
     public final Shape makeShape(final String shapeClass) {
         switch (shapeClass) {
             case CIRCLE:

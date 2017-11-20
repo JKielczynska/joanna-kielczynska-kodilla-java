@@ -4,6 +4,7 @@ public class Circle implements Shape {
     final String name;
     final double radius;
 
+    /**Method represents circle shape.*/
     public Circle(final String name, final double radius) {
         this.name = name;
         this.radius = radius;

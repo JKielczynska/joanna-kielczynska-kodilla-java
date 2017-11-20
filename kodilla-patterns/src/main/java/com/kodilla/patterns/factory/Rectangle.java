@@ -5,6 +5,7 @@ public final class Rectangle implements Shape {
     final double width;
     final double length;
 
+    /**Method represents rectangle shape.*/
     public Rectangle(final String name, final double width, final double length) {
         this.name = name;
         this.width = width;
