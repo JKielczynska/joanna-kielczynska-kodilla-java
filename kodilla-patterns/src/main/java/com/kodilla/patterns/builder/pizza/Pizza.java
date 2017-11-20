@@ -34,7 +34,7 @@ public final class Pizza {
     }
 
     /**Method represents pizza with 3 arguments representing the ingredients to be found on the pizza.*/
-    public Pizza(final String bottom, final String sauce, final List<String> ingredients) {
+    private Pizza(final String bottom, final String sauce, final List<String> ingredients) {
         this.bottom = bottom;
         this.sauce = sauce;
         this.ingredients = new ArrayList<>(ingredients);
