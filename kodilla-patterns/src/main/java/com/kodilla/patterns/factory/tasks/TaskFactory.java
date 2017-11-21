@@ -15,7 +15,7 @@ public final class TaskFactory {
             case DRIVING_TASK:
                 return new DrivingTask(DRIVING_TASK, "Lublin", "car");
             default:
-                return null;
+                throw new IllegalArgumentException("The task doesn't exist.");
         }
     }
 }
