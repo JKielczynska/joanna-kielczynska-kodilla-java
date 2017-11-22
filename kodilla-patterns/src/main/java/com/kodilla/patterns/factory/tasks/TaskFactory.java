@@ -15,7 +15,7 @@ public final class TaskFactory {
             case DRIVING_TASK:
                 return new DrivingTask(DRIVING_TASK, "Lublin", "car");
             default:
-                throw new IllegalArgumentException("The task doesn't exist.");
+                throw new IllegalArgumentException("Unsupported task type: " + taskClass);
         }
     }
 }
