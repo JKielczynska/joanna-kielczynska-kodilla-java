@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,21 +20,20 @@ public class TaskDaoTestSuite {
     private TaskDao taskDao;
     private static final String DESCRIPTION = "Test: Learn Hibernate";
 
+    @After
+    public void afterEveryTest() {
+        taskDao.deleteAll();
+    }
     @Test
     public void testTaskDaoSave() {
         //Given
         Task task = new Task(DESCRIPTION, 7);
-
         //When
         taskDao.save(task);
-
         //Then
         int id = task.getId();
         Task readTask = taskDao.findOne(id);
         Assert.assertEquals(id, readTask.getId());
-
-        //CleanUp
-        taskDao.delete(id);
     }
     @Test
     public void testTaskDaoFindByDuration() {
@@ -41,32 +41,20 @@ public class TaskDaoTestSuite {
         Task task = new Task(DESCRIPTION, 7);
         taskDao.save(task);
         int duration = task.getDuration();
-
         //When
         List<Task> readTasks = taskDao.findByDuration(duration);
-
         //Then
         Assert.assertEquals(1, readTasks.size());
-
-        //CleanUp
-        int id = readTasks.get(0).getId();
-        taskDao.delete(id);
     }
-
     @Test
     public void testTaskDaoSaveWithFinancialDetails() {
         //Given
         Task task = new Task(DESCRIPTION, 30);
         task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
-
         //When
         taskDao.save(task);
         int id = task.getId();
-
         //Then
         Assert.assertNotEquals(0, id);
-
-        //CleanUp
-        //taskDao.delete(id);
     }
 }
