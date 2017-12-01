@@ -3,6 +3,7 @@ package com.kodilla.hibernate.tasklist.dao;
 import java.util.List;
 
 import com.kodilla.hibernate.tasklist.TaskList;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +19,10 @@ public class TaskListDaoTestSuite {
     private static final String LISTNAME = "Sample task name";
     private static final String DESCRIPTION = "Task description";
 
+    @After
+    public void afterEveryTest() {
+        taskListDao.deleteAll();
+    }
     @Test
     public void testTaskDaoSave() {
         //Given
@@ -28,8 +33,6 @@ public class TaskListDaoTestSuite {
         int id = taskList.getId();
         TaskList readTask = taskListDao.findOne(id);
         Assert.assertEquals(id, readTask.getId());
-        //CleanUp
-        taskListDao.delete(id);
     }
 
     @Test
@@ -42,8 +45,5 @@ public class TaskListDaoTestSuite {
         List<TaskList> readTasks = taskListDao.findByListName(listName);
         //Then
         Assert.assertEquals(1, readTasks.size());
-        //CleanUp
-        int id = readTasks.get(0).getId();
-        taskListDao.delete(id);
     }
 }
