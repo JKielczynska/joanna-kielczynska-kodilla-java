@@ -4,7 +4,7 @@ import javax.transaction.Transactional;
 
 import java.util.List;
 
-import com.kodilla.hibernate.manytomany.Company;
+import com.kodilla.hibernate.manytomany.Employee;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
 
 @Transactional
 @Repository
-public interface CompanyDao extends CrudRepository<Company, Integer> {
+public interface EmployeeDao extends CrudRepository<Employee, Integer> {
 
-    @Query(nativeQuery = true)
-    List<Company> retrieveCompaniesByFirstThreeCharacters(@Param("THREEFIRSTCHARACTERS") String threeFirstCharacters);
+    @Query
+    List<Employee> retrieveEmployeesByLastName(@Param("LASTNAME") String lastname);
 }
