@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -15,6 +18,25 @@ import java.util.Date;
 
 import com.kodilla.hibernate.tasklist.TaskList;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "Task.retrieveLongTasks",
+                query = "FROM Task WHERE duration > 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveShortTasks",
+                query = "FROM Task WHERE duration <= 10"
+        )
+})
+@NamedNativeQuery(
+        name = "Task.retrieveTasksWithEnoughTime",
+        query = "SELECT * FROM TASKS WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
+        resultClass = Task.class
+)
+@NamedQuery(
+        name = "Task.retrieveTasksWithDurationLongerThan",
+        query = "FROM Task WHERE duration > :DURATION"
+)
 @Entity
 @Table(name = "TASKS")
 public class Task {
