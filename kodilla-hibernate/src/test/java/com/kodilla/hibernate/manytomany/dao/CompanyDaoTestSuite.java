@@ -23,8 +23,8 @@ public class CompanyDaoTestSuite {
 
     @After
     public void afterEveryTest() {
-        //companyDao.deleteAll();
         employeeDao.deleteAll();
+        companyDao.deleteAll();
     }
 
     @Test
