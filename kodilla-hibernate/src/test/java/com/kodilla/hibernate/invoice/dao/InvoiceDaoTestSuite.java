@@ -36,10 +36,8 @@ public class InvoiceDaoTestSuite {
 
         item1.setProduct(product);
         item2.setProduct(product);
-        item1.setInvoice(invoice);
-        item1.setInvoice(invoice);
-        invoice.getItems().add(item1);
-        invoice.getItems().add(item2);
+        invoice.addItem(item1);
+        invoice.addItem(item2);
         //When
         productDao.save(product);
         int productId = product.getId();

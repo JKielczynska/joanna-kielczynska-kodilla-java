@@ -41,7 +41,6 @@ public class Invoice {
     }
 
     @OneToMany(
-            targetEntity = Item.class,
             mappedBy = "invoice",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
@@ -60,5 +59,10 @@ public class Invoice {
 
     private void setItems(final List<Item> items) {
         this.items = items;
+    }
+
+    public void addItem(final Item item) {
+        item.setInvoice(this);
+        items.add(item);
     }
 }
