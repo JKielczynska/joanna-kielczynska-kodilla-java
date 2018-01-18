@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -16,6 +17,10 @@ import java.util.List;
         name = "Company.retrieveCompaniesByFirstThreeCharacters",
         query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :THREEFIRSTCHARACTERS",
         resultClass = Company.class
+)
+@NamedQuery(
+        name = "Company.retrieveCompanyByPartOfName",
+        query = "FROM Company WHERE name LIKE :PARTOFNAME"
 )
 @Entity
 @Table(name = "COMPANIES")
