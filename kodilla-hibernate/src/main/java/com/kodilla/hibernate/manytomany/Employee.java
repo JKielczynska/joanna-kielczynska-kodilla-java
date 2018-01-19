@@ -22,7 +22,7 @@ import java.util.List;
         ),
         @NamedQuery(
                 name = "Employee.retrieveEmployeesByPartOfName",
-                query = "FROM Employee WHERE lastname LIKE :PARTOFNAME"
+                query = "FROM Employee WHERE lastname LIKE :PARTOFNAME OR firstname LIKE :PARTOFNAME"
         )
 })
 @Entity

@@ -1,6 +1,7 @@
 package com.kodilla.hibernate.manytomany.facade;
 
 import com.kodilla.hibernate.manytomany.Company;
+import com.kodilla.hibernate.manytomany.Employee;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 
@@ -29,6 +30,17 @@ public class Facade {
             throw new FinderException(FinderException.ERR_COMPANY_NOT_FOUND);
         }
         return companies;
+    }
+
+    public List<Employee> retrieveEmployeesByName(String partOfName) throws FinderException {
+        LOGGER.info("Searching employee for part of name:" + partOfName);
+        List<Employee> employees;
+        try {
+            employees = employeeDao.retrieveEmployeesByPartOfName("%" + partOfName + "%");
+        } catch (Exception e) {
+            throw new FinderException(FinderException.ERR_COMPANY_NOT_FOUND);
+        }
+        return employees;
     }
 
 }
