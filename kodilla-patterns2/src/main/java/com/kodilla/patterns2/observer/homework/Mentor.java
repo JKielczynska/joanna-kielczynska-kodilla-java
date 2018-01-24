@@ -1,5 +1,7 @@
 package com.kodilla.patterns2.observer.homework;
 
+import java.util.Queue;
+
 public class Mentor implements Observer{
     private final String mentorName;
     private int updateCount;
@@ -8,8 +10,8 @@ public class Mentor implements Observer{
         this.mentorName = mentorName;
     }
     @Override
-    public void update(TaskQueue taskQueue) {
-        System.out.printf("%s: New task in %s %n(total: %d tasks)%n", mentorName, taskQueue.getName(), taskQueue.getTasks().size());
+    public void update(String taskQueueName, Queue<String> tasksQueue) {
+        System.out.printf("%s: New task in %s %n(total: %d tasks : %s )%n", mentorName, taskQueueName, tasksQueue.size(), tasksQueue);
         updateCount++;
     }
 

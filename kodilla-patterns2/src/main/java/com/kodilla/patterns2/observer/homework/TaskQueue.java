@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-public class TaskQueue implements Observable {
+public class TaskQueue implements Observable, Cloneable {
     private List<Observer> observers;
     private Queue<String> tasks;
     private String name;
@@ -27,8 +27,9 @@ public class TaskQueue implements Observable {
     }
     @Override
     public void notifyObservers() {
+        Queue<String> copiedTasks = new ArrayDeque<>(tasks);
         for (Observer observer : observers) {
-            observer.update(this);
+            observer.update(name, copiedTasks);
         }
     }
     @Override
